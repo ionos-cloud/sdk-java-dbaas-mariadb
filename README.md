@@ -74,7 +74,7 @@ The ionos-cloud-sdk-dbaas-mariadb SDK for JAVA aims to offer access to all resou
 ## FAQ
 
  - How can I open a bug/feature request?
-	Bugs & feature requests can be open on the repository issues: https://github.com/ionos-cloud/com.ionoscloud.dbaasmariadb/issues/new/choose
+	Bugs & feature requests can be open on the repository issues: https://github.com/ionos-cloud/sdk-java-dbaas-mariadb/issues/new/choose
 
  - Can I contribute to the Java SDK?
     Pur SDKs are automatically generated using OpenAPI Generator and don’t support manual changes. If you need changes please open an issue and we’ll try to take care of it.
