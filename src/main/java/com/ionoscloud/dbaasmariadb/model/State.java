@@ -34,6 +34,12 @@ public enum State {
   
   BUSY("BUSY"),
   
+  CREATING("CREATING"),
+  
+  UPDATING("UPDATING"),
+  
+  RESTORING("RESTORING"),
+  
   DESTROYING("DESTROYING"),
   
   DEGRADED("DEGRADED"),

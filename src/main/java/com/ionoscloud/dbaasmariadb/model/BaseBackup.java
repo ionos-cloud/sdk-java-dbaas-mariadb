@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * A single base backup.
  */
 @ApiModel(description = "A single base backup.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-28T09:00:03.386012Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
 
 public class BaseBackup {
   

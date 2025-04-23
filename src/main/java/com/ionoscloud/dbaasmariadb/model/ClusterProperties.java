@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ionoscloud.dbaasmariadb.model.BackupProperties;
 import com.ionoscloud.dbaasmariadb.model.Connection;
 import com.ionoscloud.dbaasmariadb.model.MaintenanceWindow;
 import com.ionoscloud.dbaasmariadb.model.MariadbVersion;
@@ -33,7 +34,7 @@ import java.util.List;
  * Properties of a database cluster.
  */
 @ApiModel(description = "Properties of a database cluster.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-28T09:00:03.386012Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
 
 public class ClusterProperties {
   
@@ -80,6 +81,11 @@ public class ClusterProperties {
   public static final String SERIALIZED_NAME_MAINTENANCE_WINDOW = "maintenanceWindow";
   @SerializedName(SERIALIZED_NAME_MAINTENANCE_WINDOW)
   private MaintenanceWindow maintenanceWindow;
+
+
+  public static final String SERIALIZED_NAME_BACKUP = "backup";
+  @SerializedName(SERIALIZED_NAME_BACKUP)
+  private BackupProperties backup;
 
   
 
@@ -312,6 +318,30 @@ public class ClusterProperties {
   }
 
 
+
+  public ClusterProperties backup(BackupProperties backup) {
+    
+    this.backup = backup;
+    return this;
+  }
+
+   /**
+   * Get backup
+   * @return backup
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public BackupProperties getBackup() {
+    return backup;
+  }
+
+
+  public void setBackup(BackupProperties backup) {
+    this.backup = backup;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -321,7 +351,7 @@ public class ClusterProperties {
       return false;
     }
     ClusterProperties clusterProperties = (ClusterProperties) o;
-    return Objects.equals(this.displayName, clusterProperties.displayName) && Objects.equals(this.mariadbVersion, clusterProperties.mariadbVersion) && Objects.equals(this.dnsName, clusterProperties.dnsName) && Objects.equals(this.instances, clusterProperties.instances) && Objects.equals(this.ram, clusterProperties.ram) && Objects.equals(this.cores, clusterProperties.cores) && Objects.equals(this.storageSize, clusterProperties.storageSize) && Objects.equals(this.connections, clusterProperties.connections) && Objects.equals(this.maintenanceWindow, clusterProperties.maintenanceWindow);
+    return Objects.equals(this.displayName, clusterProperties.displayName) && Objects.equals(this.mariadbVersion, clusterProperties.mariadbVersion) && Objects.equals(this.dnsName, clusterProperties.dnsName) && Objects.equals(this.instances, clusterProperties.instances) && Objects.equals(this.ram, clusterProperties.ram) && Objects.equals(this.cores, clusterProperties.cores) && Objects.equals(this.storageSize, clusterProperties.storageSize) && Objects.equals(this.connections, clusterProperties.connections) && Objects.equals(this.maintenanceWindow, clusterProperties.maintenanceWindow) && Objects.equals(this.backup, clusterProperties.backup);
   }
 
 
@@ -349,6 +379,8 @@ public class ClusterProperties {
     sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
 
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
+
+    sb.append("    backup: ").append(toIndentedString(backup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

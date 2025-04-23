@@ -7,6 +7,7 @@ All URIs are relative to *https://mariadb.de-txl.ionos.com*
 | [**clustersDelete**](ClustersApi.md#clustersdelete) | **DELETE** /clusters/{clusterId} | Delete a cluster |
 | [**clustersFindById**](ClustersApi.md#clustersfindbyid) | **GET** /clusters/{clusterId} | Fetch a cluster |
 | [**clustersGet**](ClustersApi.md#clustersget) | **GET** /clusters | List clusters |
+| [**clustersPatch**](ClustersApi.md#clusterspatch) | **PATCH** /clusters/{clusterId} | Update a cluster |
 | [**clustersPost**](ClustersApi.md#clusterspost) | **POST** /clusters | Create a cluster |
 
 
@@ -191,6 +192,67 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="clustersPatch"></a>
+# **clustersPatch**
+> ClusterResponse clustersPatch(clusterId, patchClusterRequest)
+
+Update a cluster
+
+Updates mutable attributes on a MariaDB cluster.
+
+### Example
+```java
+// Import classes:
+import com.ionoscloud.dbaasmariadb.ApiClient;
+import com.ionoscloud.dbaasmariadb.ApiException;
+import com.ionoscloud.dbaasmariadb.ApiResponse;
+import com.ionoscloud.dbaasmariadb.Configuration;
+import com.ionoscloud.dbaasmariadb.auth.*;
+import com.ionoscloud.dbaasmariadb.model.*;
+import com.ionoscloud.dbaasmariadb.api.ClustersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
+    ClustersApi apiInstance = new ClustersApi(defaultClient);
+    String clusterId = "498ae72f-411f-11eb-9d07-046c59cc737e"; // String | The unique ID of the cluster.
+    PatchClusterRequest patchClusterRequest = new PatchClusterRequest(); // PatchClusterRequest | Attributes of the cluster which should be modified.
+    try {
+      ApiResponse<ClusterResponse> result = apiInstance.clustersPatchWithHttpInfo(clusterId, patchClusterRequest);
+      System.out.println("Response: " + result.getData());
+      System.out.println("Status Code: " + result.getStatusCode());
+      System.out.println("Headers: " + result.getHeaders());
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ClustersApi#clustersPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clusterId** | **String**| The unique ID of the cluster. |
+| **patchClusterRequest** |  [**PatchClusterRequest**](../models/PatchClusterRequest.md)| Attributes of the cluster which should be modified. |
+
+### Return type
+
+[**ClusterResponse**](../models/ClusterResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="clustersPost"></a>

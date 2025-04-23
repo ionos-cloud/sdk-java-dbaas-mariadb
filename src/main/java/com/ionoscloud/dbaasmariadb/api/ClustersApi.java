@@ -40,6 +40,7 @@ import com.ionoscloud.dbaasmariadb.model.InlineResponse422;
 import com.ionoscloud.dbaasmariadb.model.InlineResponse429;
 import com.ionoscloud.dbaasmariadb.model.InlineResponse500;
 import com.ionoscloud.dbaasmariadb.model.InlineResponse503;
+import com.ionoscloud.dbaasmariadb.model.PatchClusterRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -533,6 +534,167 @@ public class ClustersApi {
 
         okhttp3.Call localVarCall = clustersGetValidateBeforeCall(limit, offset, filterName, _callback);
         Type localVarReturnType = new TypeToken<ClusterList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for clustersPatch
+     * @param clusterId The unique ID of the cluster. (required)
+     * @param patchClusterRequest Attributes of the cluster which should be modified. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Parse error. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication error. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found. </td><td>  -  </td></tr>
+        <tr><td> 405 </td><td> Unsupported HTTP method. </td><td>  -  </td></tr>
+        <tr><td> 415 </td><td> Unsupported content type. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation error. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request rate limit exceeded. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Server error. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Maintenance. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call clustersPatchCall(String clusterId, PatchClusterRequest patchClusterRequest, final ApiCallback<ClusterResponse> _callback) throws ApiException {
+        Object localVarPostBody = patchClusterRequest;
+
+        // create path and map variables
+        String localVarPath = "/clusters/{clusterId}"
+            .replaceAll("\\{" + "clusterId" + "\\}", localVarApiClient.escapeString(clusterId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "tokenAuth" };
+        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call clustersPatchValidateBeforeCall(String clusterId, PatchClusterRequest patchClusterRequest, final ApiCallback<ClusterResponse> _callback) throws ApiException {
+        
+        // verify the required parameter 'clusterId' is set
+        if (clusterId == null) {
+            throw new ApiException("Missing the required parameter 'clusterId' when calling clustersPatch(Async)");
+        }
+        
+        // verify the required parameter 'patchClusterRequest' is set
+        if (patchClusterRequest == null) {
+            throw new ApiException("Missing the required parameter 'patchClusterRequest' when calling clustersPatch(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = clustersPatchCall(clusterId, patchClusterRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a cluster
+     * Updates mutable attributes on a MariaDB cluster.
+     * @param clusterId The unique ID of the cluster. (required)
+     * @param patchClusterRequest Attributes of the cluster which should be modified. (required)
+     * @return ClusterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Parse error. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication error. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found. </td><td>  -  </td></tr>
+        <tr><td> 405 </td><td> Unsupported HTTP method. </td><td>  -  </td></tr>
+        <tr><td> 415 </td><td> Unsupported content type. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation error. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request rate limit exceeded. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Server error. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Maintenance. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ClusterResponse clustersPatch(String clusterId, PatchClusterRequest patchClusterRequest) throws ApiException {
+        ApiResponse<ClusterResponse> localVarResp = clustersPatchWithHttpInfo(clusterId, patchClusterRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a cluster
+     * Updates mutable attributes on a MariaDB cluster.
+     * @param clusterId The unique ID of the cluster. (required)
+     * @param patchClusterRequest Attributes of the cluster which should be modified. (required)
+     * @return ApiResponse&lt;ClusterResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Parse error. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication error. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found. </td><td>  -  </td></tr>
+        <tr><td> 405 </td><td> Unsupported HTTP method. </td><td>  -  </td></tr>
+        <tr><td> 415 </td><td> Unsupported content type. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation error. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request rate limit exceeded. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Server error. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Maintenance. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ClusterResponse> clustersPatchWithHttpInfo(String clusterId, PatchClusterRequest patchClusterRequest) throws ApiException {
+        okhttp3.Call localVarCall = clustersPatchValidateBeforeCall(clusterId, patchClusterRequest, null);
+        Type localVarReturnType = new TypeToken<ClusterResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a cluster (asynchronously)
+     * Updates mutable attributes on a MariaDB cluster.
+     * @param clusterId The unique ID of the cluster. (required)
+     * @param patchClusterRequest Attributes of the cluster which should be modified. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Parse error. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication error. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found. </td><td>  -  </td></tr>
+        <tr><td> 405 </td><td> Unsupported HTTP method. </td><td>  -  </td></tr>
+        <tr><td> 415 </td><td> Unsupported content type. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation error. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request rate limit exceeded. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Server error. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Maintenance. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call clustersPatchAsync(String clusterId, PatchClusterRequest patchClusterRequest, final ApiCallback<ClusterResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = clustersPatchValidateBeforeCall(clusterId, patchClusterRequest, _callback);
+        Type localVarReturnType = new TypeToken<ClusterResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

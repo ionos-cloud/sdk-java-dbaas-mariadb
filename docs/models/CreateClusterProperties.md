@@ -15,6 +15,8 @@ Properties with all data needed to create a new MariaDB cluster.
 | **connections** | [**List&lt;Connection&gt;**](Connection.md) | The network connection for your cluster. Only one connection is allowed.  |  |
 | **displayName** | **String** | The friendly name of your cluster. |  |
 | **maintenanceWindow** | [**MaintenanceWindow**](MaintenanceWindow.md) |  |  [optional] |
+| **backup** | [**BackupProperties**](BackupProperties.md) |  |  [optional] |
 | **credentials** | [**DBUser**](DBUser.md) |  |  |
+| **fromBackup** | [**RestoreRequest**](RestoreRequest.md) |  |  [optional] |
 
 

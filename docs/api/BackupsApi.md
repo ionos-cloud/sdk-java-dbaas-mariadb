@@ -4,8 +4,8 @@ All URIs are relative to *https://mariadb.de-txl.ionos.com*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**backupsFindById**](BackupsApi.md#backupsfindbyid) | **GET** /backups/{backupId} | Fetch a cluster&#39;s backups |
-| [**backupsGet**](BackupsApi.md#backupsget) | **GET** /backups | List of cluster&#39;s backups. |
+| [**backupsFindById**](BackupsApi.md#backupsfindbyid) | **GET** /backups/{backupId} | Fetch backups |
+| [**backupsGet**](BackupsApi.md#backupsget) | **GET** /backups | List of backups. |
 | [**clusterBackupsGet**](BackupsApi.md#clusterbackupsget) | **GET** /clusters/{clusterId}/backups | List backups of cluster |
 
 
@@ -13,9 +13,9 @@ All URIs are relative to *https://mariadb.de-txl.ionos.com*
 # **backupsFindById**
 > BackupResponse backupsFindById(backupId)
 
-Fetch a cluster&#39;s backups
+Fetch backups
 
-Retrieve a MariaDB cluster&#39;s backups by using its ID. This value can be found when you GET the list of MariaDB cluster backups. 
+Retrieve a MariaDB backup by ID. This value can be found when you GET the list of MariaDB backups. 
 
 ### Example
 ```java
@@ -72,7 +72,7 @@ public class Example {
 # **backupsGet**
 > BackupList backupsGet(limit, offset)
 
-List of cluster&#39;s backups.
+List of backups.
 
 Retrieves all lists of backups for all MariaDB clusters in this contract. 
 

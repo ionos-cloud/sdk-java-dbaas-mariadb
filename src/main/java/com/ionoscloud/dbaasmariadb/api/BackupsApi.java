@@ -133,8 +133,8 @@ public class BackupsApi {
     }
 
     /**
-     * Fetch a cluster&#39;s backups
-     * Retrieve a MariaDB cluster&#39;s backups by using its ID. This value can be found when you GET the list of MariaDB cluster backups. 
+     * Fetch backups
+     * Retrieve a MariaDB backup by ID. This value can be found when you GET the list of MariaDB backups. 
      * @param backupId The unique ID of the backup. (required)
      * @return BackupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -160,8 +160,8 @@ public class BackupsApi {
     }
 
     /**
-     * Fetch a cluster&#39;s backups
-     * Retrieve a MariaDB cluster&#39;s backups by using its ID. This value can be found when you GET the list of MariaDB cluster backups. 
+     * Fetch backups
+     * Retrieve a MariaDB backup by ID. This value can be found when you GET the list of MariaDB backups. 
      * @param backupId The unique ID of the backup. (required)
      * @return ApiResponse&lt;BackupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -188,8 +188,8 @@ public class BackupsApi {
     }
 
     /**
-     * Fetch a cluster&#39;s backups (asynchronously)
-     * Retrieve a MariaDB cluster&#39;s backups by using its ID. This value can be found when you GET the list of MariaDB cluster backups. 
+     * Fetch backups (asynchronously)
+     * Retrieve a MariaDB backup by ID. This value can be found when you GET the list of MariaDB backups. 
      * @param backupId The unique ID of the backup. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -288,7 +288,7 @@ public class BackupsApi {
     }
 
     /**
-     * List of cluster&#39;s backups.
+     * List of backups.
      * Retrieves all lists of backups for all MariaDB clusters in this contract. 
      * @param limit The maximum number of elements to return. Use together with &#39;offset&#39; for pagination. (optional, default to 100)
      * @param offset The first element to return. Use together with &#39;limit&#39; for pagination. (optional, default to 0)
@@ -316,7 +316,7 @@ public class BackupsApi {
     }
 
     /**
-     * List of cluster&#39;s backups.
+     * List of backups.
      * Retrieves all lists of backups for all MariaDB clusters in this contract. 
      * @param limit The maximum number of elements to return. Use together with &#39;offset&#39; for pagination. (optional, default to 100)
      * @param offset The first element to return. Use together with &#39;limit&#39; for pagination. (optional, default to 0)
@@ -345,7 +345,7 @@ public class BackupsApi {
     }
 
     /**
-     * List of cluster&#39;s backups. (asynchronously)
+     * List of backups. (asynchronously)
      * Retrieves all lists of backups for all MariaDB clusters in this contract. 
      * @param limit The maximum number of elements to return. Use together with &#39;offset&#39; for pagination. (optional, default to 100)
      * @param offset The first element to return. Use together with &#39;limit&#39; for pagination. (optional, default to 0)

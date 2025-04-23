@@ -32,13 +32,18 @@ import org.threeten.bp.OffsetDateTime;
  * A backup object.
  */
 @ApiModel(description = "A backup object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-28T09:00:03.386012Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
 
 public class Backup {
   
   public static final String SERIALIZED_NAME_CLUSTER_ID = "clusterId";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
   private String clusterId;
+
+
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
+  private String location;
 
 
   public static final String SERIALIZED_NAME_EARLIEST_RECOVERY_TARGET_TIME = "earliestRecoveryTargetTime";
@@ -77,6 +82,30 @@ public class Backup {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+  }
+
+
+
+  public Backup location(String location) {
+    
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * The S3 location where the backups will be stored.
+   * @return location
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "de", value = "The S3 location where the backups will be stored.")
+
+  public String getLocation() {
+    return location;
+  }
+
+
+  public void setLocation(String location) {
+    this.location = location;
   }
 
 
@@ -169,7 +198,7 @@ public class Backup {
       return false;
     }
     Backup backup = (Backup) o;
-    return Objects.equals(this.clusterId, backup.clusterId) && Objects.equals(this.earliestRecoveryTargetTime, backup.earliestRecoveryTargetTime) && Objects.equals(this.size, backup.size) && Objects.equals(this.baseBackups, backup.baseBackups);
+    return Objects.equals(this.clusterId, backup.clusterId) && Objects.equals(this.location, backup.location) && Objects.equals(this.earliestRecoveryTargetTime, backup.earliestRecoveryTargetTime) && Objects.equals(this.size, backup.size) && Objects.equals(this.baseBackups, backup.baseBackups);
   }
 
 
@@ -181,6 +210,8 @@ public class Backup {
     sb.append("class Backup {\n");
     
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
 
     sb.append("    earliestRecoveryTargetTime: ").append(toIndentedString(earliestRecoveryTargetTime)).append("\n");
 

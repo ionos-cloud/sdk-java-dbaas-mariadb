@@ -134,7 +134,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("ionos-cloud-sdk-java-dbaas-mariadb-ionoscloud/v1.0.0");
+        setUserAgent("ionos-cloud-sdk-java-dbaas-mariadb-ionoscloud/v1.0.1");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -151,7 +151,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://mariadb.de-txl.ionos.com
+     * @param basePath Base path of the URL (e.g https://mariadb.de-txl.ionos.com)
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

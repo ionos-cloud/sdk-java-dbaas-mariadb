@@ -20,25 +20,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ionoscloud.dbaasmariadb.model.BackupProperties;
-import com.ionoscloud.dbaasmariadb.model.Connection;
-import com.ionoscloud.dbaasmariadb.model.DBUser;
 import com.ionoscloud.dbaasmariadb.model.MaintenanceWindow;
 import com.ionoscloud.dbaasmariadb.model.MariadbVersion;
-import com.ionoscloud.dbaasmariadb.model.RestoreRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Properties with all data needed to create a new MariaDB cluster. 
+ * Properties of the payload to change a cluster: - instances can only be increased (3, 5, 7), - mariadbVersion can only be increased (no downgrade) - storageSize can only be increased, - ram and cores can be both increased and decreased. 
  */
-@ApiModel(description = "Properties with all data needed to create a new MariaDB cluster. ")
+@ApiModel(description = "Properties of the payload to change a cluster: - instances can only be increased (3, 5, 7), - mariadbVersion can only be increased (no downgrade) - storageSize can only be increased, - ram and cores can be both increased and decreased. ")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
 
-public class CreateClusterProperties {
+public class PatchClusterProperties {
   
   public static final String SERIALIZED_NAME_MARIADB_VERSION = "mariadbVersion";
   @SerializedName(SERIALIZED_NAME_MARIADB_VERSION)
@@ -65,11 +59,6 @@ public class CreateClusterProperties {
   private Integer storageSize;
 
 
-  public static final String SERIALIZED_NAME_CONNECTIONS = "connections";
-  @SerializedName(SERIALIZED_NAME_CONNECTIONS)
-  private List<Connection> connections = new ArrayList<Connection>();
-
-
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   private String displayName;
@@ -79,24 +68,9 @@ public class CreateClusterProperties {
   @SerializedName(SERIALIZED_NAME_MAINTENANCE_WINDOW)
   private MaintenanceWindow maintenanceWindow;
 
-
-  public static final String SERIALIZED_NAME_BACKUP = "backup";
-  @SerializedName(SERIALIZED_NAME_BACKUP)
-  private BackupProperties backup;
-
-
-  public static final String SERIALIZED_NAME_CREDENTIALS = "credentials";
-  @SerializedName(SERIALIZED_NAME_CREDENTIALS)
-  private DBUser credentials;
-
-
-  public static final String SERIALIZED_NAME_FROM_BACKUP = "fromBackup";
-  @SerializedName(SERIALIZED_NAME_FROM_BACKUP)
-  private RestoreRequest fromBackup;
-
   
 
-  public CreateClusterProperties mariadbVersion(MariadbVersion mariadbVersion) {
+  public PatchClusterProperties mariadbVersion(MariadbVersion mariadbVersion) {
     
     this.mariadbVersion = mariadbVersion;
     return this;
@@ -106,7 +80,8 @@ public class CreateClusterProperties {
    * Get mariadbVersion
    * @return mariadbVersion
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public MariadbVersion getMariadbVersion() {
     return mariadbVersion;
@@ -119,7 +94,7 @@ public class CreateClusterProperties {
 
 
 
-  public CreateClusterProperties instances(Integer instances) {
+  public PatchClusterProperties instances(Integer instances) {
     
     this.instances = instances;
     return this;
@@ -131,7 +106,8 @@ public class CreateClusterProperties {
    * maximum: 5
    * @return instances
   **/
-  @ApiModelProperty(example = "3", required = true, value = "The total number of instances in the cluster (one primary and n-1 secondary). ")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "3", value = "The total number of instances in the cluster (one primary and n-1 secondary). ")
 
   public Integer getInstances() {
     return instances;
@@ -144,7 +120,7 @@ public class CreateClusterProperties {
 
 
 
-  public CreateClusterProperties cores(Integer cores) {
+  public PatchClusterProperties cores(Integer cores) {
     
     this.cores = cores;
     return this;
@@ -155,7 +131,8 @@ public class CreateClusterProperties {
    * minimum: 1
    * @return cores
   **/
-  @ApiModelProperty(example = "4", required = true, value = "The number of CPU cores per instance.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "4", value = "The number of CPU cores per instance.")
 
   public Integer getCores() {
     return cores;
@@ -168,7 +145,7 @@ public class CreateClusterProperties {
 
 
 
-  public CreateClusterProperties ram(Integer ram) {
+  public PatchClusterProperties ram(Integer ram) {
     
     this.ram = ram;
     return this;
@@ -179,7 +156,8 @@ public class CreateClusterProperties {
    * minimum: 4
    * @return ram
   **/
-  @ApiModelProperty(example = "4", required = true, value = "The amount of memory per instance in gigabytes (GB).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "4", value = "The amount of memory per instance in gigabytes (GB).")
 
   public Integer getRam() {
     return ram;
@@ -192,7 +170,7 @@ public class CreateClusterProperties {
 
 
 
-  public CreateClusterProperties storageSize(Integer storageSize) {
+  public PatchClusterProperties storageSize(Integer storageSize) {
     
     this.storageSize = storageSize;
     return this;
@@ -204,7 +182,8 @@ public class CreateClusterProperties {
    * maximum: 2000
    * @return storageSize
   **/
-  @ApiModelProperty(example = "10", required = true, value = "The amount of storage per instance in gigabytes (GB).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "10", value = "The amount of storage per instance in gigabytes (GB).")
 
   public Integer getStorageSize() {
     return storageSize;
@@ -217,35 +196,7 @@ public class CreateClusterProperties {
 
 
 
-  public CreateClusterProperties connections(List<Connection> connections) {
-    
-    this.connections = connections;
-    return this;
-  }
-
-  public CreateClusterProperties addConnectionsItem(Connection connectionsItem) {
-    this.connections.add(connectionsItem);
-    return this;
-  }
-
-   /**
-   * The network connection for your cluster. Only one connection is allowed. 
-   * @return connections
-  **/
-  @ApiModelProperty(required = true, value = "The network connection for your cluster. Only one connection is allowed. ")
-
-  public List<Connection> getConnections() {
-    return connections;
-  }
-
-
-  public void setConnections(List<Connection> connections) {
-    this.connections = connections;
-  }
-
-
-
-  public CreateClusterProperties displayName(String displayName) {
+  public PatchClusterProperties displayName(String displayName) {
     
     this.displayName = displayName;
     return this;
@@ -255,7 +206,8 @@ public class CreateClusterProperties {
    * The friendly name of your cluster.
    * @return displayName
   **/
-  @ApiModelProperty(example = "MariaDB cluster", required = true, value = "The friendly name of your cluster.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "MariaDB cluster", value = "The friendly name of your cluster.")
 
   public String getDisplayName() {
     return displayName;
@@ -268,7 +220,7 @@ public class CreateClusterProperties {
 
 
 
-  public CreateClusterProperties maintenanceWindow(MaintenanceWindow maintenanceWindow) {
+  public PatchClusterProperties maintenanceWindow(MaintenanceWindow maintenanceWindow) {
     
     this.maintenanceWindow = maintenanceWindow;
     return this;
@@ -291,77 +243,6 @@ public class CreateClusterProperties {
   }
 
 
-
-  public CreateClusterProperties backup(BackupProperties backup) {
-    
-    this.backup = backup;
-    return this;
-  }
-
-   /**
-   * Get backup
-   * @return backup
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public BackupProperties getBackup() {
-    return backup;
-  }
-
-
-  public void setBackup(BackupProperties backup) {
-    this.backup = backup;
-  }
-
-
-
-  public CreateClusterProperties credentials(DBUser credentials) {
-    
-    this.credentials = credentials;
-    return this;
-  }
-
-   /**
-   * Get credentials
-   * @return credentials
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public DBUser getCredentials() {
-    return credentials;
-  }
-
-
-  public void setCredentials(DBUser credentials) {
-    this.credentials = credentials;
-  }
-
-
-
-  public CreateClusterProperties fromBackup(RestoreRequest fromBackup) {
-    
-    this.fromBackup = fromBackup;
-    return this;
-  }
-
-   /**
-   * Get fromBackup
-   * @return fromBackup
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public RestoreRequest getFromBackup() {
-    return fromBackup;
-  }
-
-
-  public void setFromBackup(RestoreRequest fromBackup) {
-    this.fromBackup = fromBackup;
-  }
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -370,8 +251,8 @@ public class CreateClusterProperties {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateClusterProperties createClusterProperties = (CreateClusterProperties) o;
-    return Objects.equals(this.mariadbVersion, createClusterProperties.mariadbVersion) && Objects.equals(this.instances, createClusterProperties.instances) && Objects.equals(this.cores, createClusterProperties.cores) && Objects.equals(this.ram, createClusterProperties.ram) && Objects.equals(this.storageSize, createClusterProperties.storageSize) && Objects.equals(this.connections, createClusterProperties.connections) && Objects.equals(this.displayName, createClusterProperties.displayName) && Objects.equals(this.maintenanceWindow, createClusterProperties.maintenanceWindow) && Objects.equals(this.backup, createClusterProperties.backup) && Objects.equals(this.credentials, createClusterProperties.credentials) && Objects.equals(this.fromBackup, createClusterProperties.fromBackup);
+    PatchClusterProperties patchClusterProperties = (PatchClusterProperties) o;
+    return Objects.equals(this.mariadbVersion, patchClusterProperties.mariadbVersion) && Objects.equals(this.instances, patchClusterProperties.instances) && Objects.equals(this.cores, patchClusterProperties.cores) && Objects.equals(this.ram, patchClusterProperties.ram) && Objects.equals(this.storageSize, patchClusterProperties.storageSize) && Objects.equals(this.displayName, patchClusterProperties.displayName) && Objects.equals(this.maintenanceWindow, patchClusterProperties.maintenanceWindow);
   }
 
 
@@ -380,7 +261,7 @@ public class CreateClusterProperties {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateClusterProperties {\n");
+    sb.append("class PatchClusterProperties {\n");
     
     sb.append("    mariadbVersion: ").append(toIndentedString(mariadbVersion)).append("\n");
 
@@ -392,17 +273,9 @@ public class CreateClusterProperties {
 
     sb.append("    storageSize: ").append(toIndentedString(storageSize)).append("\n");
 
-    sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
-
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
 
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
-
-    sb.append("    backup: ").append(toIndentedString(backup)).append("\n");
-
-    sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
-
-    sb.append("    fromBackup: ").append(toIndentedString(fromBackup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

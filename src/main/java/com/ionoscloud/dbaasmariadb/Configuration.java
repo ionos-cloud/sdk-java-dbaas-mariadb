@@ -13,7 +13,7 @@
 
 package com.ionoscloud.dbaasmariadb;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-28T09:00:03.386012Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
 public class Configuration {
     public static final String IONOS_USERNAME_ENV_VAR = "IONOS_USERNAME";
     public static final String IONOS_PASSWORD_ENV_VAR = "IONOS_PASSWORD";
@@ -22,6 +22,16 @@ public class Configuration {
 
     public static final String DEFAULT_IONOS_SERVER_URL = "https://mariadb.de-txl.ionos.com";
     public static final String DEFAULT_IONOS_BASE_PATH  = "";
+    public static final String IONOS_SERVER_URLs[] = new String[] {
+        "https://mariadb.de-txl.ionos.com",
+        "https://mariadb.de-fra.ionos.com",
+        "https://mariadb.es-vit.ionos.com",
+        "https://mariadb.fr-par.ionos.com",
+        "https://mariadb.gb-lhr.ionos.com",
+        "https://mariadb.us-ewr.ionos.com",
+        "https://mariadb.us-las.ionos.com",
+        "https://mariadb.us-mci.ionos.com",
+    };
 
     private static ApiClient defaultApiClient = new ApiClient();
 

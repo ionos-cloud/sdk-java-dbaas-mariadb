@@ -20,78 +20,44 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ionoscloud.dbaasmariadb.model.ErrorMessage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * InlineResponse500
+ * Properties configuring the backup of the cluster. 
  */
+@ApiModel(description = "Properties configuring the backup of the cluster. ")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
 
-public class InlineResponse500 {
+public class BackupProperties {
   
-  public static final String SERIALIZED_NAME_HTTP_STATUS = "httpStatus";
-  @SerializedName(SERIALIZED_NAME_HTTP_STATUS)
-  private Integer httpStatus;
-
-
-  public static final String SERIALIZED_NAME_MESSAGES = "messages";
-  @SerializedName(SERIALIZED_NAME_MESSAGES)
-  private List<ErrorMessage> messages = new ArrayList<ErrorMessage>();
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
+  private String location;
 
   
 
-  public InlineResponse500 httpStatus(Integer httpStatus) {
+  public BackupProperties location(String location) {
     
-    this.httpStatus = httpStatus;
+    this.location = location;
     return this;
   }
 
    /**
-   * The HTTP status code of the operation.
-   * @return httpStatus
+   * The S3 location where the backups will be stored.
+   * @return location
   **/
-  @ApiModelProperty(example = "500", required = true, value = "The HTTP status code of the operation.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "de", value = "The S3 location where the backups will be stored.")
 
-  public Integer getHttpStatus() {
-    return httpStatus;
+  public String getLocation() {
+    return location;
   }
 
 
-  public void setHttpStatus(Integer httpStatus) {
-    this.httpStatus = httpStatus;
-  }
-
-
-
-  public InlineResponse500 messages(List<ErrorMessage> messages) {
-    
-    this.messages = messages;
-    return this;
-  }
-
-  public InlineResponse500 addMessagesItem(ErrorMessage messagesItem) {
-    this.messages.add(messagesItem);
-    return this;
-  }
-
-   /**
-   * Get messages
-   * @return messages
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public List<ErrorMessage> getMessages() {
-    return messages;
-  }
-
-
-  public void setMessages(List<ErrorMessage> messages) {
-    this.messages = messages;
+  public void setLocation(String location) {
+    this.location = location;
   }
 
 
@@ -103,8 +69,8 @@ public class InlineResponse500 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse500 inlineResponse500 = (InlineResponse500) o;
-    return Objects.equals(this.httpStatus, inlineResponse500.httpStatus) && Objects.equals(this.messages, inlineResponse500.messages);
+    BackupProperties backupProperties = (BackupProperties) o;
+    return Objects.equals(this.location, backupProperties.location);
   }
 
 
@@ -113,11 +79,9 @@ public class InlineResponse500 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse500 {\n");
+    sb.append("class BackupProperties {\n");
     
-    sb.append("    httpStatus: ").append(toIndentedString(httpStatus)).append("\n");
-
-    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("}");
     return sb.toString();
   }

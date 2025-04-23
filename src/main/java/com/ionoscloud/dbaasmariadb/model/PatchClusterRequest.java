@@ -20,78 +20,75 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ionoscloud.dbaasmariadb.model.ErrorMessage;
+import com.ionoscloud.dbaasmariadb.model.ClusterMetadata;
+import com.ionoscloud.dbaasmariadb.model.PatchClusterProperties;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * InlineResponse500
+ * Request payload to change a cluster.
  */
+@ApiModel(description = "Request payload to change a cluster.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
 
-public class InlineResponse500 {
+public class PatchClusterRequest {
   
-  public static final String SERIALIZED_NAME_HTTP_STATUS = "httpStatus";
-  @SerializedName(SERIALIZED_NAME_HTTP_STATUS)
-  private Integer httpStatus;
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private ClusterMetadata metadata;
 
 
-  public static final String SERIALIZED_NAME_MESSAGES = "messages";
-  @SerializedName(SERIALIZED_NAME_MESSAGES)
-  private List<ErrorMessage> messages = new ArrayList<ErrorMessage>();
+  public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+  @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  private PatchClusterProperties properties;
 
   
 
-  public InlineResponse500 httpStatus(Integer httpStatus) {
+  public PatchClusterRequest metadata(ClusterMetadata metadata) {
     
-    this.httpStatus = httpStatus;
+    this.metadata = metadata;
     return this;
   }
 
    /**
-   * The HTTP status code of the operation.
-   * @return httpStatus
+   * Get metadata
+   * @return metadata
   **/
-  @ApiModelProperty(example = "500", required = true, value = "The HTTP status code of the operation.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public Integer getHttpStatus() {
-    return httpStatus;
+  public ClusterMetadata getMetadata() {
+    return metadata;
   }
 
 
-  public void setHttpStatus(Integer httpStatus) {
-    this.httpStatus = httpStatus;
+  public void setMetadata(ClusterMetadata metadata) {
+    this.metadata = metadata;
   }
 
 
 
-  public InlineResponse500 messages(List<ErrorMessage> messages) {
+  public PatchClusterRequest properties(PatchClusterProperties properties) {
     
-    this.messages = messages;
-    return this;
-  }
-
-  public InlineResponse500 addMessagesItem(ErrorMessage messagesItem) {
-    this.messages.add(messagesItem);
+    this.properties = properties;
     return this;
   }
 
    /**
-   * Get messages
-   * @return messages
+   * Get properties
+   * @return properties
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public List<ErrorMessage> getMessages() {
-    return messages;
+  public PatchClusterProperties getProperties() {
+    return properties;
   }
 
 
-  public void setMessages(List<ErrorMessage> messages) {
-    this.messages = messages;
+  public void setProperties(PatchClusterProperties properties) {
+    this.properties = properties;
   }
 
 
@@ -103,8 +100,8 @@ public class InlineResponse500 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse500 inlineResponse500 = (InlineResponse500) o;
-    return Objects.equals(this.httpStatus, inlineResponse500.httpStatus) && Objects.equals(this.messages, inlineResponse500.messages);
+    PatchClusterRequest patchClusterRequest = (PatchClusterRequest) o;
+    return Objects.equals(this.metadata, patchClusterRequest.metadata) && Objects.equals(this.properties, patchClusterRequest.properties);
   }
 
 
@@ -113,11 +110,11 @@ public class InlineResponse500 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse500 {\n");
+    sb.append("class PatchClusterRequest {\n");
     
-    sb.append("    httpStatus: ").append(toIndentedString(httpStatus)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
 
-    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
