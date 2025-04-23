@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Request payload to restore a cluster from a backup. 
  */
 @ApiModel(description = "Request payload to restore a cluster from a backup. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T09:57:40.818416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T11:48:32.695886Z[Etc/UTC]")
 
 public class RestoreRequest {
   

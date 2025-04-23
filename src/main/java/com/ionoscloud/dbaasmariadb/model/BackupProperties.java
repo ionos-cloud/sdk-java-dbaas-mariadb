@@ -28,7 +28,7 @@ import java.io.IOException;
  * Properties configuring the backup of the cluster. 
  */
 @ApiModel(description = "Properties configuring the backup of the cluster. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T09:57:40.818416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T11:48:32.695886Z[Etc/UTC]")
 
 public class BackupProperties {
   
