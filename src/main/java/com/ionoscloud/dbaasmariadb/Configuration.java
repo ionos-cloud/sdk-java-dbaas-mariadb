@@ -13,7 +13,7 @@
 
 package com.ionoscloud.dbaasmariadb;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T09:57:40.818416Z[Etc/UTC]")
 public class Configuration {
     public static final String IONOS_USERNAME_ENV_VAR = "IONOS_USERNAME";
     public static final String IONOS_PASSWORD_ENV_VAR = "IONOS_PASSWORD";

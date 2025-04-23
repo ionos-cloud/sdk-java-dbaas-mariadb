@@ -34,7 +34,7 @@ import java.util.List;
  * Properties of a database cluster.
  */
 @ApiModel(description = "Properties of a database cluster.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T09:57:40.818416Z[Etc/UTC]")
 
 public class ClusterProperties {
   

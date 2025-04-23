@@ -30,7 +30,7 @@ import java.io.IOException;
  * Properties of the payload to change a cluster: - instances can only be increased (3, 5, 7), - mariadbVersion can only be increased (no downgrade) - storageSize can only be increased, - ram and cores can be both increased and decreased. 
  */
 @ApiModel(description = "Properties of the payload to change a cluster: - instances can only be increased (3, 5, 7), - mariadbVersion can only be increased (no downgrade) - storageSize can only be increased, - ram and cores can be both increased and decreased. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T09:57:40.818416Z[Etc/UTC]")
 
 public class PatchClusterProperties {
   

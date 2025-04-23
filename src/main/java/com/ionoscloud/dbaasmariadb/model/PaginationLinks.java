@@ -29,7 +29,7 @@ import java.net.URI;
  * URLs to navigate the different pages. 
  */
 @ApiModel(description = "URLs to navigate the different pages. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T09:57:40.818416Z[Etc/UTC]")
 
 public class PaginationLinks {
   

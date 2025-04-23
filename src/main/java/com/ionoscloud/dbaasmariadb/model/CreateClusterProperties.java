@@ -36,7 +36,7 @@ import java.util.List;
  * Properties with all data needed to create a new MariaDB cluster. 
  */
 @ApiModel(description = "Properties with all data needed to create a new MariaDB cluster. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T08:43:50.943261Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-23T09:57:40.818416Z[Etc/UTC]")
 
 public class CreateClusterProperties {
   
